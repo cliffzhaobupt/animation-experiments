@@ -1,0 +1,52 @@
+.wrapper {
+  width: 600px;
+  margin: 30px auto;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px #ccc;
+  padding: 50px;
+  position: relative;
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+  }
+
+  60% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes zoom {
+  0% {
+    -webkit-transform: scale(1);
+  }
+
+  60% {
+    -webkit-transform: scale(1.2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+
+.heart-css-animation:hover {
+  animation: zoom 1s ease-out 0.5s;
+  -webkit-animation: zoom 1s ease-out 0.5s;
+}
+
+.heart-css-forever-animation:hover {
+  animation: zoom 1s ease-out 0.5s infinite;
+  -webkit-animation: zoom 1s ease-out 0.5s infinite;
+}
+
+.heart-js-animation, .heart-js-forever-animation {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
