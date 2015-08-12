@@ -1,13 +1,32 @@
-$('.heart-scale-gsap-animation').animate({
-  'transform': 'scale(1.2)'
-}, 400).animate({
-  'transform': 'scale(1)'
-}, 600);
+var zoomAnim, rotateAnim;
 
-// $('.heart-rotate-gsap-animation').animate({
-//   'transform': 'rotate(180deg)'
-// }, 400).animate({
-//   'transform': 'rotate(360deg)'
-// }, 600);
+$('.heart-scale-gsap-animation').hover(function(event) {
+  if (zoomAnim) {
+    zoomAnim.play();
+    return true;
+  }
 
-TweenLite.to($('.heart-rotate-gsap-animation'), 1, {directionalRotation:"360_cw"});
+  var heart = $(event.currentTarget);
+  zoomAnim = new TimelineLite({delay: 0.4});
+  zoomAnim.to(heart, 0.4, {transform: 'scale(1.2)'});
+  zoomAnim.to(heart, 0.6, {transform: 'scale(1)'});
+}, function() {
+  zoomAnim.pause();
+  zoomAnim.progress(0);
+});
+
+$('.heart-rotate-gsap-animation').hover(function(event) {
+  if (rotateAnim) {
+    rotateAnim.play();
+    return true;
+  }
+
+  var heart = $(event.currentTarget);
+  rotateAnim = TweenLite.to(heart, 1, {
+    directionalRotation: '360_cw',
+    delay: '0.4'
+  });
+}, function() {
+  rotateAnim.pause();
+  rotateAnim.progress(0);
+});
