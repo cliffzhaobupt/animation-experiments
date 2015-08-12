@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  .wrapper
+    img.heart-css-animation(src='images/heart.png')
+    img.heart-js-animation(src='images/heart.png')
+  .wrapper
+    img.heart-css-forever-animation(src='images/heart.png')
+    img.heart-js-forever-animation(src='images/heart.png')
+  .wrapper
+    img.heart-scale-gsap-animation(src='images/heart.png')
+    img.heart-rotate-gsap-animation(src='images/heart.png')
+
+  script(type='text/javascript', src='javascripts/jquery-1.11.3.min.js')
+  script(src='http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js')
+  script(src='javascripts/animation-script.js')
+  script(src='javascripts/animation-forever-script.js')
+  script(src='javascripts/animation-gsap.js')
