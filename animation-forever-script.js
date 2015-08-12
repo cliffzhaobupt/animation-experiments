@@ -1,22 +1,26 @@
-var intervalId;
-
 $('.heart-js-forever-animation').hover(function(event) {
   var heart = $(event.currentTarget);
   heart.delay(400);
-  intervalId = setInterval(function() {
-    if (heart.queue('fx').length == 0) {
-      heart.animate({
-        'width': '+=40px',
-        'top': '-=20px',
-        'right': '-=20px'
-      }, 600).animate({
-        'width': '-=40px',
-        'top': '+=20px',
-        'right': '+=20px'
-      }, 400);
-    }
-  }, 100);
+
+  function heartZoom() {
+    heart.animate({
+      'width': '+=40px',
+      'top': '-=20px',
+      'right': '-=20px'
+    }, 600).animate({
+      'width': '-=40px',
+      'top': '+=20px',
+      'right': '+=20px'
+    }, 400, function () {
+      heartZoom();
+    });
+  }
+
+  heartZoom();
 }, function(event) {
-  $(event.currentTarget).finish();
-  clearInterval(intervalId);
+  $(event.currentTarget).stop(true).css({
+    'top': '50px',
+    'right': '50px',
+    'width': '200px'
+  });
 });
